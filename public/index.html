@@ -546,7 +546,7 @@ footer {
       <a href="#works">Books</a>
       <a href="#commentary">Commentary</a>
       <a href="https://meritienglish.com" target="_blank">MeritiEnglish.com</a>
-      <a href="#contact" class="nav-cta">Book a Lesson</a>
+      <a href="https://letsgoenglish.as.me/" target="_blank" class="nav-cta">Book a Lesson</a>
     </div>
     <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -561,7 +561,7 @@ footer {
   <a href="#works" onclick="toggleMobile()">Books & Works</a>
   <a href="#commentary" onclick="toggleMobile()">Commentary</a>
   <a href="https://meritienglish.com" target="_blank" onclick="toggleMobile()">MeritiEnglish.com</a>
-  <a href="#contact" onclick="toggleMobile()">Book a Lesson</a>
+  <a href="https://letsgoenglish.as.me/" target="_blank" onclick="toggleMobile()">Book a Lesson</a>
 </div>
 
 <!-- HERO -->
@@ -583,7 +583,7 @@ footer {
       With over 15 years in education, Ms. Anna (<span class="cn">安娜老师</span>) is dedicated to helping every student reach their potential.
     </p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Book a Lesson</a>
+      <a href="https://letsgoenglish.as.me/" target="_blank" class="btn-primary">Book a Lesson</a>
       <a href="#exercise" class="btn-secondary">Try a Free Exercise</a>
     </div>
     <div class="tigao-pulse">
@@ -1000,37 +1000,15 @@ footer {
         <div class="contact-method"><strong>Core Ages:</strong>&nbsp;13 &ndash; 65 (exceptions for K3+ & exam prep)</div>
         <div class="contact-method"><strong>Regions:</strong>&nbsp;&#127464;&#127475; &#127469;&#127472; &#127468;&#127463; &#127482;&#127480; &#127464;&#127462; &#127758;</div>
         <div class="contact-method"><strong>Websites:</strong>&nbsp;<a href="https://meritienglish.com" target="_blank" style="color: var(--gold);">meritienglish.com</a> &nbsp;&middot;&nbsp; <a href="https://meritieducation.com" target="_blank" style="color: var(--gold);">meritieducation.com</a></div>
+        <div class="contact-method"><strong>Booking:</strong>&nbsp;<a href="https://letsgoenglish.as.me/" target="_blank" style="color: var(--gold);">letsgoenglish.as.me</a></div>
       </div>
       <div class="contact-form fade-up" style="transition-delay: 0.15s;">
         <h3>Book a Lesson <span class="cn" style="font-size: 0.85rem;">预约课程</span></h3>
-        <div class="form-group">
-          <label>Your Name</label>
-          <input type="text" placeholder="Full name">
+        <p style="color: #aaa; font-size: 0.88rem; margin-bottom: 16px;">Schedule directly via our booking system or email us.</p>
+        <iframe src="https://app.acuityscheduling.com/schedule.php?owner=38547757&location=None&ref=embedded_csp" title="Schedule Appointment" width="100%" height="600" frameBorder="0" allow="payment" style="border-radius: 8px; background: rgba(255,255,255,0.03);"></iframe>
+        <div style="text-align: center; margin-top: 16px;">
+          <a href="https://letsgoenglish.as.me/" target="_blank" class="btn-primary" style="background: var(--gold); border-color: var(--gold); color: var(--black);">Schedule Appointment</a>
         </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="you@example.com">
-        </div>
-        <div class="form-group">
-          <label>Level</label>
-          <select>
-            <option>Beginner (Primary)</option>
-            <option>Intermediate (Secondary)</option>
-            <option>Advanced (University+)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Session Type</label>
-          <select>
-            <option>40 minutes &mdash; &pound;35</option>
-            <option>1 hour 15 minutes &mdash; &pound;55</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message (optional)</label>
-          <textarea placeholder="Tell us about your goals..."></textarea>
-        </div>
-        <button class="form-submit" onclick="alert('Thank you! Please email welcome@meritienglish.com or hi@meritieducation.com to confirm your booking. We will be in touch shortly!')">Send Booking Request</button>
       </div>
     </div>
   </div>
@@ -1230,5 +1208,8 @@ function prevQ() {
 
 renderQ();
 </script>
+<!-- Acuity Scheduling Booking Bar -->
+<link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/38547757.css" id="acuity-button-styles" />
+<script src="https://embed.acuityscheduling.com/embed/button/38547757.js" async></script>
 </body>
 </html>
