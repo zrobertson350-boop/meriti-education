@@ -513,6 +513,114 @@ footer {
 }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
+/* ===== ASSESSMENT ===== */
+#assessment { background: linear-gradient(160deg, #0d1b2a 0%, #1b2838 100%); color: #fff; }
+#assessment .section-label { color: var(--gold); }
+#assessment .section-label::before { background: var(--gold); }
+#assessment .section-title { color: #fff; }
+#assessment .section-desc { color: #aaa; }
+.assess-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 36px; max-width: 780px;
+}
+.assess-progress { display: flex; gap: 4px; margin-bottom: 24px; }
+.assess-progress .bar {
+  flex: 1; height: 4px; border-radius: 2px;
+  background: rgba(255,255,255,0.1); transition: background 0.3s;
+}
+.assess-progress .bar.done { background: var(--gold); }
+.assess-progress .bar.current { background: var(--gold); opacity: 0.5; }
+.assess-q { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 8px; }
+.assess-passage {
+  background: rgba(255,255,255,0.04); border-left: 3px solid var(--gold);
+  padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 20px;
+  font-size: 0.92rem; color: #ccc; line-height: 1.8; font-style: italic;
+}
+.assess-opts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.assess-opt {
+  padding: 14px 20px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03); color: #ddd;
+  cursor: pointer; font-size: 0.92rem; transition: all 0.2s;
+  display: flex; align-items: center; gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+}
+.assess-opt:hover { border-color: var(--gold); background: rgba(255,255,255,0.06); }
+.assess-opt.selected { border-color: var(--gold); background: rgba(212,168,83,0.15); color: #fff; }
+.assess-opt .opt-letter {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 700; flex-shrink: 0;
+  transition: all 0.2s;
+}
+.assess-opt.selected .opt-letter {
+  background: var(--gold); color: var(--black); border-color: var(--gold);
+}
+.assess-btn {
+  padding: 12px 28px; border-radius: 8px; border: none;
+  background: var(--gold); color: var(--black); font-weight: 700;
+  cursor: pointer; font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.2s;
+}
+.assess-btn:hover { opacity: 0.85; }
+.assess-btn:disabled { opacity: 0.3; cursor: default; }
+.assess-footer { display: flex; justify-content: space-between; align-items: center; }
+.assess-counter { font-size: 0.78rem; color: #666; }
+
+/* Result card */
+.result-card { text-align: center; padding: 48px 32px; }
+.result-score {
+  font-family: 'Playfair Display', serif; font-size: 4.5rem;
+  font-weight: 900; color: var(--gold); line-height: 1;
+}
+.result-of { font-size: 1rem; color: #888; margin-bottom: 8px; }
+.result-level {
+  display: inline-block; padding: 8px 28px; border-radius: 50px;
+  font-size: 1.1rem; font-weight: 700; margin: 16px 0;
+  letter-spacing: 1px;
+}
+.result-level.beginner { background: rgba(45,106,79,0.2); color: #6fcf97; border: 2px solid #6fcf97; }
+.result-level.intermediate { background: rgba(44,82,130,0.2); color: #63b3ed; border: 2px solid #63b3ed; }
+.result-level.advanced { background: rgba(192,57,43,0.2); color: #fc8181; border: 2px solid #fc8181; }
+.result-breakdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 24px 0; }
+.result-stat { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 16px 8px; }
+.result-stat .rs-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: #fff; }
+.result-stat .rs-label { font-size: 0.7rem; color: #888; margin-top: 2px; }
+
+/* ===== WORKSHEETS / MATERIALS ===== */
+.materials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.material-card {
+  background: #fff; border: 1px solid var(--light-grey); border-radius: 14px;
+  padding: 28px; transition: all 0.3s; position: relative;
+}
+.material-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+.material-card .mat-type {
+  display: inline-block; padding: 3px 10px; border-radius: 4px;
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; margin-bottom: 12px;
+}
+.mat-worksheet { background: #e3f2fd; color: var(--blue); }
+.mat-activity { background: #e8f5e9; color: var(--green); }
+.mat-workbook { background: #fff3e0; color: #e67e22; }
+.mat-comprehension { background: #fce4ec; color: var(--red); }
+.material-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; font-family: 'DM Sans', sans-serif; }
+.material-card .mat-desc { font-size: 0.82rem; color: var(--grey); margin-bottom: 12px; }
+.material-card .mat-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.material-card .mat-tag {
+  padding: 2px 8px; background: var(--cream); border-radius: 3px;
+  font-size: 0.68rem; color: var(--grey); font-weight: 500;
+}
+.material-card .mat-level {
+  position: absolute; top: 12px; right: 12px;
+  font-size: 0.6rem; font-weight: 700; padding: 2px 8px;
+  border-radius: 4px; text-transform: uppercase;
+}
+.ml-beginner { background: #e8f5e9; color: var(--green); }
+.ml-intermediate { background: #e3f2fd; color: var(--blue); }
+.ml-advanced { background: #ffebee; color: var(--red); }
+.ml-all { background: #f3e5f5; color: #8e24aa; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .nav-links { display: none; }
@@ -543,6 +651,7 @@ footer {
       <a href="#services">Services</a>
       <a href="#programmes">Programmes</a>
       <a href="#exercise">Practice</a>
+      <a href="#assessment">Assessment</a>
       <a href="#works">Books</a>
       <a href="#commentary">Commentary</a>
       <a href="https://meritienglish.com" target="_blank">MeritiEnglish.com</a>
@@ -558,6 +667,7 @@ footer {
   <a href="#services" onclick="toggleMobile()">Services</a>
   <a href="#programmes" onclick="toggleMobile()">Programmes</a>
   <a href="#exercise" onclick="toggleMobile()">Practice</a>
+  <a href="#assessment" onclick="toggleMobile()">Assessment</a>
   <a href="#works" onclick="toggleMobile()">Books & Works</a>
   <a href="#commentary" onclick="toggleMobile()">Commentary</a>
   <a href="https://meritienglish.com" target="_blank" onclick="toggleMobile()">MeritiEnglish.com</a>
@@ -899,6 +1009,21 @@ footer {
   </div>
 </section>
 
+<!-- SKILLS ASSESSMENT -->
+<section id="assessment">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Skills Assessment <span class="cn" style="letter-spacing:0; color: var(--gold);">能力测试</span></div>
+      <h2 class="section-title">What's Your English Level?</h2>
+      <p class="section-desc">Take our quick 15-question assessment covering reading, grammar, vocabulary, comprehension, and practical reasoning. Get your score and level instantly.</p>
+    </div>
+    <div class="assess-card fade-up" id="assessCard">
+      <div class="assess-progress" id="assessProgress"></div>
+      <div id="assessBody"></div>
+    </div>
+  </div>
+</section>
+
 <!-- BOOKS & ORIGINAL WORKS -->
 <section id="works" class="alt-bg">
   <div class="container">
@@ -952,7 +1077,122 @@ footer {
         <h3>Shop Worksheets, Books & Study Materials</h3>
         <p>Browse our collection of worksheets, revision aids, writer's guides, and original books for kids and adults. <span class="cn">浏览我们的工作表、复习资料和原创书籍。</span></p>
       </div>
-      <a href="#contact" class="btn-primary">Enquire to Purchase</a>
+      <a href="https://letsgoenglish.as.me/" target="_blank" class="btn-primary">Enquire to Purchase</a>
+    </div>
+  </div>
+</section>
+
+<!-- MATERIALS & WORKSHEETS -->
+<section id="materials">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Materials & Resources <span class="cn" style="letter-spacing:0">教学材料与资源</span></div>
+      <h2 class="section-title">Worksheets, Workbooks & Activity Pages</h2>
+      <p class="section-desc">Original educational materials by Ms. Anna. Worksheets, activity pages, comprehension exercises, and workbooks for all levels.</p>
+    </div>
+    <div class="materials-grid fade-up">
+
+      <div class="material-card">
+        <span class="mat-level ml-beginner">Beginner</span>
+        <div class="mat-type mat-worksheet">Worksheet</div>
+        <h4>Verb Tenses &mdash; Present Simple</h4>
+        <p class="mat-desc">Fill in the blanks, match the verb forms, and rewrite sentences using the correct present simple tense.</p>
+        <div class="mat-tags"><span class="mat-tag">Grammar</span><span class="mat-tag">Tenses</span><span class="mat-tag">Writing</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-beginner">Beginner</span>
+        <div class="mat-type mat-activity">Activity Page</div>
+        <h4>Word Search &mdash; Animals & Nature</h4>
+        <p class="mat-desc">Find 20 hidden words related to animals and nature. Builds vocabulary and spelling recognition for young learners.</p>
+        <div class="mat-tags"><span class="mat-tag">Vocabulary</span><span class="mat-tag">Spelling</span><span class="mat-tag">Fun</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-beginner">Beginner</span>
+        <div class="mat-type mat-worksheet">Worksheet</div>
+        <h4>Punctuation Practice &mdash; Capital Letters & Full Stops</h4>
+        <p class="mat-desc">Rewrite sentences with correct capitals and full stops. Spot-the-error exercises included.</p>
+        <div class="mat-tags"><span class="mat-tag">Punctuation</span><span class="mat-tag">Writing</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-intermediate">Intermediate</span>
+        <div class="mat-type mat-comprehension">Comprehension</div>
+        <h4>Reading Passage &mdash; "The Market at Dawn"</h4>
+        <p class="mat-desc">Read the passage and answer questions on inference, vocabulary in context, and author's purpose.</p>
+        <div class="mat-tags"><span class="mat-tag">Reading</span><span class="mat-tag">Comprehension</span><span class="mat-tag">Analysis</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-intermediate">Intermediate</span>
+        <div class="mat-type mat-worksheet">Worksheet</div>
+        <h4>Verb Tenses &mdash; Past Perfect & Conditionals</h4>
+        <p class="mat-desc">Complete sentences using past perfect, second and third conditionals. Includes error correction exercises.</p>
+        <div class="mat-tags"><span class="mat-tag">Grammar</span><span class="mat-tag">Tenses</span><span class="mat-tag">Conditionals</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-intermediate">Intermediate</span>
+        <div class="mat-type mat-workbook">Workbook</div>
+        <h4>Essay Writing Guide &mdash; Structure & Argument</h4>
+        <p class="mat-desc">Step-by-step workbook on writing persuasive essays: thesis, body paragraphs, evidence, and conclusions.</p>
+        <div class="mat-tags"><span class="mat-tag">Writing</span><span class="mat-tag">Essays</span><span class="mat-tag">Structure</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-advanced">Advanced</span>
+        <div class="mat-type mat-comprehension">Comprehension</div>
+        <h4>Literary Analysis &mdash; Animal Farm (Orwell)</h4>
+        <p class="mat-desc">Exam-style questions on themes, allegory, character analysis, and historical context. GCSE/IB/AP level.</p>
+        <div class="mat-tags"><span class="mat-tag">Literature</span><span class="mat-tag">Analysis</span><span class="mat-tag">Exam Prep</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-advanced">Advanced</span>
+        <div class="mat-type mat-worksheet">Worksheet</div>
+        <h4>Advanced Grammar &mdash; Subjunctive & Inversion</h4>
+        <p class="mat-desc">Master subjunctive mood, fronted adverbials, and inverted conditionals. IELTS/Cambridge-level exercises.</p>
+        <div class="mat-tags"><span class="mat-tag">Grammar</span><span class="mat-tag">IELTS</span><span class="mat-tag">Cambridge</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-all">All Levels</span>
+        <div class="mat-type mat-activity">Activity Page</div>
+        <h4>Creative Writing Prompts &mdash; 30 Story Starters</h4>
+        <p class="mat-desc">Spark imagination with 30 original writing prompts. Perfect for homework, warm-ups, or independent practice.</p>
+        <div class="mat-tags"><span class="mat-tag">Creative Writing</span><span class="mat-tag">Stories</span><span class="mat-tag">Prompts</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-intermediate">Intermediate</span>
+        <div class="mat-type mat-worksheet">Worksheet</div>
+        <h4>Semicolons, Colons & Apostrophes</h4>
+        <p class="mat-desc">When to use semicolons vs commas, colons before lists, possessive apostrophes vs contractions.</p>
+        <div class="mat-tags"><span class="mat-tag">Punctuation</span><span class="mat-tag">Grammar</span><span class="mat-tag">Writing</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-beginner">Beginner</span>
+        <div class="mat-type mat-workbook">Workbook</div>
+        <h4>My First 500 English Words</h4>
+        <p class="mat-desc">Illustrated vocabulary workbook with matching, labelling, and sentence-building activities for young learners.</p>
+        <div class="mat-tags"><span class="mat-tag">Vocabulary</span><span class="mat-tag">Kids</span><span class="mat-tag">Illustrated</span></div>
+      </div>
+
+      <div class="material-card">
+        <span class="mat-level ml-advanced">Advanced</span>
+        <div class="mat-type mat-comprehension">Comprehension</div>
+        <h4>Practical Reasoning &mdash; Arguments & Evidence</h4>
+        <p class="mat-desc">Evaluate arguments, identify logical fallacies, distinguish fact from opinion. SAT/IELTS reading skills.</p>
+        <div class="mat-tags"><span class="mat-tag">Reasoning</span><span class="mat-tag">Critical Thinking</span><span class="mat-tag">Exam Prep</span></div>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 32px;">
+      <p style="color: var(--grey); font-size: 0.88rem; margin-bottom: 16px;">All materials are original content by Ms. Anna. Contact us to purchase or request custom worksheets.</p>
+      <a href="mailto:hi@meritieducation.com" class="btn-primary">Request Materials</a>
     </div>
   </div>
 </section>
@@ -1207,6 +1447,160 @@ function prevQ() {
 }
 
 renderQ();
+
+// ===== SKILLS ASSESSMENT ENGINE =====
+const assessQs = [
+  // --- READING & COMPREHENSION (easy -> hard) ---
+  { cat: 'Reading', diff: 1,
+    passage: 'The cat sat on the mat. It was a sunny day and the cat was happy.',
+    q: 'Where was the cat?', opts: ['On the bed', 'On the mat', 'In the garden', 'On the chair'], ans: 1 },
+  { cat: 'Reading', diff: 2,
+    passage: 'Although the forecast predicted rain, Sarah decided to walk to school without an umbrella. By lunchtime, she deeply regretted her decision.',
+    q: 'What can we infer happened?', opts: ['It stayed sunny', 'Sarah forgot her lunch', 'It rained', 'School was cancelled'], ans: 2 },
+  { cat: 'Reading', diff: 3,
+    passage: 'The author\'s use of the crumbling manor house serves as an extended metaphor for the decline of the aristocratic class in post-war Britain, mirroring the protagonist\'s own disintegrating sense of identity.',
+    q: 'The manor house symbolises:', opts: ['Wealth and success', 'The decline of a social class', 'A happy childhood', 'The beauty of architecture'], ans: 1 },
+
+  // --- GRAMMAR (easy -> hard) ---
+  { cat: 'Grammar', diff: 1,
+    q: 'Choose the correct sentence:', opts: ['She don\'t like apples.', 'She doesn\'t like apples.', 'She not like apples.', 'She no like apples.'], ans: 1 },
+  { cat: 'Grammar', diff: 2,
+    q: 'Which sentence uses the past perfect correctly?', opts: ['I have went to the shop.', 'She had already left when I arrived.', 'They was eating dinner.', 'He have been there before.'], ans: 1 },
+  { cat: 'Grammar', diff: 3,
+    q: '"Not until the results were published ___ the extent of the damage."', opts: ['did the public realise', 'the public realised', 'the public did realise', 'realised the public'], ans: 0 },
+
+  // --- VOCABULARY (easy -> hard) ---
+  { cat: 'Vocabulary', diff: 1,
+    q: 'What does "enormous" mean?', opts: ['Very small', 'Very big', 'Very fast', 'Very old'], ans: 1 },
+  { cat: 'Vocabulary', diff: 2,
+    q: '"The teacher commended the student for her diligence." What does "diligence" mean?', opts: ['Laziness', 'Hard work and care', 'Intelligence', 'Creativity'], ans: 1 },
+  { cat: 'Vocabulary', diff: 3,
+    q: 'Choose the word that best completes: "His ___ remarks alienated even his closest allies."', opts: ['affable', 'acerbic', 'amiable', 'altruistic'], ans: 1 },
+
+  // --- PUNCTUATION (easy -> hard) ---
+  { cat: 'Punctuation', diff: 1,
+    q: 'Which sentence is correct?', opts: ['where are you going?', 'Where are you going?', 'Where are you going.', 'where Are You Going?'], ans: 1 },
+  { cat: 'Punctuation', diff: 2,
+    q: 'Choose the correct use of the apostrophe:', opts: ['The dog\'s are barking.', 'The dogs\' owner left.', 'The dog\'s is big.', 'The dogs are bark\'ing.'], ans: 1 },
+  { cat: 'Punctuation', diff: 3,
+    q: 'Identify the correctly punctuated sentence:', opts: [
+      'The findings, which were published last month revealed significant discrepancies.',
+      'The findings which were published last month, revealed significant discrepancies.',
+      'The findings, which were published last month, revealed significant discrepancies.',
+      'The findings which were published last month revealed, significant discrepancies.'
+    ], ans: 2 },
+
+  // --- PRACTICAL REASONING (easy -> hard) ---
+  { cat: 'Reasoning', diff: 1,
+    q: '"All dogs are animals. Rex is a dog." Therefore:', opts: ['Rex is a cat', 'Rex is an animal', 'All animals are dogs', 'Rex is not an animal'], ans: 1 },
+  { cat: 'Reasoning', diff: 2,
+    passage: '"Studies show that students who eat breakfast perform better in exams. Therefore, the school should provide free breakfast to improve results."',
+    q: 'What assumption does this argument make?', opts: ['All students skip breakfast', 'Better exam results are unimportant', 'Providing breakfast will cause students to eat it', 'Students prefer lunch to breakfast'], ans: 2 },
+  { cat: 'Reasoning', diff: 3,
+    passage: '"Country X has increased military spending by 40% while simultaneously reducing its diplomatic corps. Its neighbours have responded by forming a defensive alliance."',
+    q: 'What can be most reasonably inferred?', opts: [
+      'Country X wants peace',
+      'The neighbours perceive Country X as a potential threat',
+      'Military spending always leads to conflict',
+      'The diplomatic corps was ineffective'
+    ], ans: 1 },
+];
+
+let assessIdx = 0;
+let assessAnswers = new Array(assessQs.length).fill(-1);
+
+function initAssess() {
+  assessIdx = 0;
+  assessAnswers = new Array(assessQs.length).fill(-1);
+  renderAssess();
+}
+
+function renderAssess() {
+  const total = assessQs.length;
+  // Progress bar
+  let progHtml = '';
+  for (let i = 0; i < total; i++) {
+    const cls = i < assessIdx ? 'done' : i === assessIdx ? 'current' : '';
+    progHtml += `<div class="bar ${cls}"></div>`;
+  }
+  document.getElementById('assessProgress').innerHTML = progHtml;
+
+  const q = assessQs[assessIdx];
+  let html = '';
+  if (q.passage) {
+    html += `<div class="assess-passage">${q.passage}</div>`;
+  }
+  html += `<div class="assess-q">${q.q}</div>`;
+  const cats = ['Reading', 'Grammar', 'Vocabulary', 'Punctuation', 'Reasoning'];
+  const diffLabels = ['Easy', 'Medium', 'Hard'];
+  html += `<div style="font-size:0.72rem;color:#666;margin-bottom:16px;">${q.cat} &middot; ${diffLabels[q.diff-1]}</div>`;
+  html += '<div class="assess-opts">';
+  const letters = ['A', 'B', 'C', 'D'];
+  q.opts.forEach((opt, i) => {
+    const sel = assessAnswers[assessIdx] === i ? 'selected' : '';
+    html += `<div class="assess-opt ${sel}" onclick="pickAssess(${i})"><span class="opt-letter">${letters[i]}</span>${opt}</div>`;
+  });
+  html += '</div>';
+  html += '<div class="assess-footer">';
+  html += `<span class="assess-counter">Question ${assessIdx + 1} of ${total}</span>`;
+  html += '<div>';
+  if (assessIdx > 0) html += `<button class="assess-btn" style="background:transparent;color:#ccc;border:1px solid rgba(255,255,255,0.15);margin-right:8px;" onclick="assessIdx--;renderAssess();">&larr; Back</button>`;
+  if (assessIdx < total - 1) {
+    html += `<button class="assess-btn" onclick="assessNext()" ${assessAnswers[assessIdx] === -1 ? 'disabled' : ''}>Next &rarr;</button>`;
+  } else {
+    html += `<button class="assess-btn" onclick="showResults()" ${assessAnswers[assessIdx] === -1 ? 'disabled' : ''}>See My Results</button>`;
+  }
+  html += '</div></div>';
+  document.getElementById('assessBody').innerHTML = html;
+}
+
+function pickAssess(i) {
+  assessAnswers[assessIdx] = i;
+  renderAssess();
+}
+
+function assessNext() {
+  if (assessAnswers[assessIdx] === -1) return;
+  assessIdx++;
+  renderAssess();
+}
+
+function showResults() {
+  let score = 0;
+  let catScores = { Reading: 0, Grammar: 0, Vocabulary: 0, Punctuation: 0, Reasoning: 0 };
+  let catTotals = { Reading: 0, Grammar: 0, Vocabulary: 0, Punctuation: 0, Reasoning: 0 };
+  assessQs.forEach((q, i) => {
+    catTotals[q.cat]++;
+    if (assessAnswers[i] === q.ans) { score++; catScores[q.cat]++; }
+  });
+
+  let level, levelClass;
+  if (score <= 5) { level = 'Beginner'; levelClass = 'beginner'; }
+  else if (score <= 10) { level = 'Intermediate'; levelClass = 'intermediate'; }
+  else { level = 'Advanced'; levelClass = 'advanced'; }
+
+  let pct = Math.round((score / assessQs.length) * 100);
+
+  let html = '<div class="result-card">';
+  html += `<div class="result-score">${pct}%</div>`;
+  html += `<div class="result-of">${score} out of ${assessQs.length} correct</div>`;
+  html += `<div class="result-level ${levelClass}">${level}</div>`;
+  html += `<p style="color:#aaa;font-size:0.9rem;margin-bottom:20px;">Your English proficiency level is <strong style="color:#fff;">${level}</strong></p>`;
+  html += '<div class="result-breakdown">';
+  for (const cat of Object.keys(catScores)) {
+    html += `<div class="result-stat"><div class="rs-num">${catScores[cat]}/${catTotals[cat]}</div><div class="rs-label">${cat}</div></div>`;
+  }
+  html += '</div>';
+  html += `<div style="margin-top:24px;">`;
+  html += `<a href="https://letsgoenglish.as.me/" target="_blank" class="assess-btn" style="margin-right:8px;">Book a Lesson</a>`;
+  html += `<button class="assess-btn" style="background:transparent;color:#ccc;border:1px solid rgba(255,255,255,0.15);" onclick="initAssess()">Retake Assessment</button>`;
+  html += '</div></div>';
+
+  document.getElementById('assessProgress').innerHTML = '';
+  document.getElementById('assessBody').innerHTML = html;
+}
+
+initAssess();
 </script>
 <!-- Acuity Scheduling Booking Bar -->
 <link rel="stylesheet" href="https://embed.acuityscheduling.com/embed/button/38547757.css" id="acuity-button-styles" />
