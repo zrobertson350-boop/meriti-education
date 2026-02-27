@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meriti Education — Let's Go English!</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #1a1a1a;
+  --red: #c0392b;
+  --red-light: #e74c3c;
+  --gold: #d4a853;
+  --gold-light: #f0d48a;
+  --cream: #faf8f2;
+  --warm-white: #fffdf7;
+  --grey: #6b6b6b;
+  --light-grey: #e8e5df;
+  --green: #2d6a4f;
+  --blue: #2c5282;
+  --section-pad: 80px 0;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--black);
+  background: var(--warm-white);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+.cn { font-family: 'Noto Sans SC', sans-serif; color: var(--red); }
+.en { color: var(--black); }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(250,248,242,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--light-grey);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 900;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--red); display: inline-block; }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a {
+  color: var(--grey); font-size: 0.88rem;
+  font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em;
+}
+.nav-links a:hover { color: var(--black); }
+.nav-cta {
+  background: var(--black) !important; color: #fff !important;
+  padding: 8px 20px !important; border-radius: 6px;
+  font-size: 0.85rem !important; transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--red) !important; }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--black); margin: 5px 0; transition: 0.3s; }
+.mobile-menu {
+  display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+  background: var(--cream); padding: 32px 24px; z-index: 999;
+  flex-direction: column; gap: 20px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { color: var(--black); font-size: 1.1rem; font-weight: 500; padding: 8px 0; border-bottom: 1px solid var(--light-grey); }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding-top: 64px; position: relative; overflow: hidden;
+  background: linear-gradient(170deg, var(--warm-white) 0%, var(--cream) 50%, #f5efe3 100%);
+}
+.hero::before {
+  content: ''; position: absolute; top: -200px; right: -200px;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(192,57,43,0.06) 0%, transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -100px; left: -150px;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,168,83,0.08) 0%, transparent 70%);
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-tagline::before { content: ''; width: 40px; height: 2px; background: var(--red); }
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 900;
+  line-height: 1.1; margin-bottom: 16px;
+}
+.hero h1 .cn { display: block; font-size: 0.6em; margin-top: 8px; font-weight: 700; }
+.hero-sub {
+  font-size: 1.15rem; color: var(--grey); max-width: 520px;
+  margin-bottom: 36px; line-height: 1.8;
+}
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--black); color: #fff; padding: 14px 32px;
+  border-radius: 8px; font-weight: 600;
+  font-size: 0.95rem; transition: all 0.3s; border: 2px solid var(--black);
+  cursor: pointer; display: inline-block;
+}
+.btn-primary:hover { background: var(--red); border-color: var(--red); }
+.btn-secondary {
+  background: transparent; color: var(--black); padding: 14px 32px;
+  border-radius: 8px; font-weight: 600;
+  font-size: 0.95rem; border: 2px solid var(--black); transition: all 0.3s;
+  cursor: pointer; display: inline-block;
+}
+.btn-secondary:hover { background: var(--black); color: #fff; }
+
+/* ===== BLITZ MARQUEE ===== */
+.blitz-strip { background: var(--black); padding: 14px 0; overflow: hidden; }
+.blitz-track {
+  display: flex; gap: 60px; animation: marquee 22s linear infinite;
+  white-space: nowrap;
+}
+.blitz-track span {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700; flex-shrink: 0;
+}
+.blitz-track .b-en { color: #fff; }
+.blitz-track .b-cn { color: var(--red-light); font-family: 'Noto Sans SC', sans-serif; }
+.blitz-track .b-gold { color: var(--gold); }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.blitz-strip-reverse { background: var(--red); padding: 10px 0; overflow: hidden; }
+.blitz-track-reverse {
+  display: flex; gap: 50px; animation: marquee-reverse 18s linear infinite;
+  white-space: nowrap;
+}
+.blitz-track-reverse span {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 1.15rem; font-weight: 700; flex-shrink: 0; color: #fff;
+}
+.blitz-track-reverse .rev-en {
+  font-family: 'Playfair Display', serif; color: rgba(255,255,255,0.85);
+}
+
+/* ===== FLOATING TIGAO PARTICLES ===== */
+.tigao-float {
+  position: absolute; z-index: 1; pointer-events: none;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-weight: 700; color: rgba(192,57,43,0.08);
+  white-space: nowrap;
+}
+.tigao-float.t1 { top: 12%; right: 8%; font-size: 4rem; animation: floatUp 6s ease-in-out infinite; }
+.tigao-float.t2 { top: 35%; right: 3%; font-size: 2.5rem; animation: floatUp 8s ease-in-out infinite 1s; }
+.tigao-float.t3 { bottom: 18%; right: 12%; font-size: 3.2rem; animation: floatUp 7s ease-in-out infinite 2s; }
+.tigao-float.t4 { top: 55%; right: 18%; font-size: 1.8rem; animation: floatUp 9s ease-in-out infinite 0.5s; }
+.tigao-float.t5 { bottom: 30%; right: 25%; font-size: 2rem; animation: floatUp 5s ease-in-out infinite 3s; }
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-20px) rotate(3deg); opacity: 1; }
+}
+
+/* ===== TIGAO PULSE BADGE ===== */
+.tigao-pulse {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(192,57,43,0.08); border: 1px solid rgba(192,57,43,0.15);
+  border-radius: 50px; padding: 6px 18px;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.9rem; font-weight: 700; color: var(--red);
+  animation: pulse-glow 2s ease-in-out infinite;
+  margin-top: 20px;
+}
+.tigao-pulse .en-small {
+  font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+  color: var(--grey); font-weight: 500;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.15); }
+  50% { box-shadow: 0 0 20px 4px rgba(192,57,43,0.1); }
+}
+
+/* ===== SECTIONS ===== */
+section { padding: var(--section-pad); }
+.section-label {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before { content: ''; width: 24px; height: 2px; background: var(--red); }
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900;
+  line-height: 1.2; margin-bottom: 20px;
+}
+.section-desc { color: var(--grey); max-width: 600px; margin-bottom: 40px; font-size: 1.02rem; }
+.alt-bg { background: var(--cream); }
+
+/* ===== ABOUT ===== */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.about-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 28px; }
+.stat-card {
+  background: #fff; border: 1px solid var(--light-grey); border-radius: 12px;
+  padding: 20px; text-align: center;
+}
+.stat-card .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--red); }
+.stat-card .label { font-size: 0.78rem; color: var(--grey); margin-top: 2px; }
+.about-credentials { margin-top: 24px; }
+.credential {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 14px 0; border-bottom: 1px solid var(--light-grey);
+}
+.credential-icon {
+  width: 36px; height: 36px; border-radius: 8px; background: var(--cream);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  font-size: 1rem;
+}
+.credential h4 { font-size: 0.92rem; font-weight: 600; font-family: 'DM Sans', sans-serif; }
+.credential p { font-size: 0.82rem; color: var(--grey); }
+
+/* ===== SERVICES ===== */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.service-card {
+  background: #fff; border: 1px solid var(--light-grey);
+  border-radius: 14px; padding: 28px;
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.07);
+  border-color: transparent;
+}
+.service-icon { font-size: 1.5rem; margin-bottom: 14px; }
+.service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; font-family: 'DM Sans', sans-serif; }
+.service-card p { color: var(--grey); font-size: 0.88rem; }
+
+/* ===== PROGRAMMES ===== */
+.prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.prog-card {
+  background: #fff; border: 1px solid var(--light-grey); border-radius: 16px;
+  padding: 32px; transition: all 0.3s; position: relative; overflow: hidden;
+}
+.prog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.prog-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+}
+.prog-card.beginner::before { background: var(--green); }
+.prog-card.intermediate::before { background: var(--blue); }
+.prog-card.advanced::before { background: var(--red); }
+.prog-badge {
+  display: inline-block; padding: 4px 14px; border-radius: 20px;
+  font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 14px;
+}
+.beginner .prog-badge { background: #e8f5e9; color: var(--green); }
+.intermediate .prog-badge { background: #e3f2fd; color: var(--blue); }
+.advanced .prog-badge { background: #ffebee; color: var(--red); }
+.prog-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+.prog-card .cn-sub { font-family: 'Noto Sans SC', sans-serif; color: var(--red); font-size: 0.88rem; margin-bottom: 12px; }
+.prog-card p { font-size: 0.88rem; color: var(--grey); margin-bottom: 14px; }
+.prog-subjects { display: flex; flex-wrap: wrap; gap: 6px; }
+.prog-subjects span {
+  padding: 4px 12px; background: var(--cream); border-radius: 4px;
+  font-size: 0.75rem; color: var(--grey); font-weight: 500;
+}
+
+/* ===== EXAMS ===== */
+.exam-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.exam-tag {
+  padding: 10px 20px; background: #fff; border: 1px solid var(--light-grey);
+  border-radius: 8px; font-size: 0.85rem; font-weight: 600;
+  transition: all 0.3s; cursor: default;
+}
+.exam-tag:hover { border-color: var(--red); color: var(--red); }
+
+/* ===== INTERACTIVE EXERCISE ===== */
+#exercise { background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%); color: #fff; }
+#exercise .section-label { color: var(--gold); }
+#exercise .section-label::before { background: var(--gold); }
+#exercise .section-title { color: #fff; }
+#exercise .section-desc { color: #aaa; }
+.exercise-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 40px; max-width: 700px;
+}
+.exercise-level-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.exercise-level-tabs button {
+  padding: 8px 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.2);
+  background: transparent; color: #ccc; font-size: 0.85rem; font-weight: 600;
+  cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif;
+}
+.exercise-level-tabs button.active { background: var(--gold); color: var(--black); border-color: var(--gold); }
+.exercise-type-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.exercise-type-tabs button {
+  padding: 6px 16px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15);
+  background: transparent; color: #aaa; font-size: 0.8rem; font-weight: 500;
+  cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif;
+}
+.exercise-type-tabs button.active { background: rgba(255,255,255,0.1); color: #fff; border-color: rgba(255,255,255,0.3); }
+.exercise-sentence {
+  font-family: 'Playfair Display', serif; font-size: 1.35rem;
+  line-height: 1.8; margin-bottom: 24px;
+}
+.exercise-blank {
+  display: inline-block; min-width: 110px; border-bottom: 2px dashed var(--gold);
+  text-align: center; padding: 0 8px; color: var(--gold); font-weight: 700;
+  transition: all 0.3s;
+}
+.exercise-blank.correct { border-color: #2ecc71; color: #2ecc71; }
+.exercise-blank.wrong { border-color: var(--red-light); color: var(--red-light); }
+.exercise-options { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.exercise-options button {
+  padding: 10px 22px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05); color: #fff; font-size: 0.95rem;
+  cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+}
+.exercise-options button:hover { background: rgba(255,255,255,0.12); border-color: var(--gold); }
+.exercise-options button.correct-opt { background: #2ecc71; color: #fff; border-color: #2ecc71; }
+.exercise-options button.wrong-opt { background: var(--red-light); color: #fff; border-color: var(--red-light); }
+.exercise-feedback { min-height: 28px; font-size: 0.9rem; margin-top: 10px; }
+.exercise-nav { display: flex; gap: 12px; margin-top: 18px; }
+.exercise-nav button {
+  padding: 10px 24px; border-radius: 8px; border: none;
+  background: var(--gold); color: var(--black); font-weight: 600;
+  cursor: pointer; font-size: 0.88rem; font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.2s;
+}
+.exercise-nav button:hover { opacity: 0.85; }
+.exercise-nav button:disabled { opacity: 0.3; cursor: default; }
+
+/* ===== PRICING ===== */
+.pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 700px; }
+.price-card {
+  background: #fff; border: 2px solid var(--light-grey); border-radius: 16px;
+  padding: 36px; text-align: center; transition: all 0.3s; position: relative;
+}
+.price-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.price-card.featured { border-color: var(--gold); }
+.price-card.featured::after {
+  content: 'POPULAR'; position: absolute; top: -12px; left: 50%;
+  transform: translateX(-50%); background: var(--gold); color: var(--black);
+  padding: 3px 14px; border-radius: 50px; font-size: 0.65rem;
+  font-weight: 700; letter-spacing: 1px;
+}
+.price-card .duration { font-size: 0.85rem; color: var(--grey); font-weight: 500; margin-bottom: 8px; }
+.price-card .price {
+  font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900;
+}
+.price-card .price .currency { font-size: 1.2rem; vertical-align: top; }
+.price-card .note { font-size: 0.85rem; color: var(--grey); margin-top: 8px; }
+.price-features { text-align: left; margin: 1.2rem 0; }
+.price-features li {
+  padding: 5px 0; font-size: 0.85rem; color: var(--grey);
+  display: flex; align-items: center; gap: 8px;
+}
+.price-features li::before { content: ''; color: var(--green); font-weight: 700; }
+.price-card .book-btn {
+  display: inline-block; margin-top: 16px; padding: 12px 28px;
+  background: var(--black); color: #fff; border-radius: 8px;
+  font-weight: 600; font-size: 0.9rem; transition: background 0.2s;
+}
+.price-card .book-btn:hover { background: var(--red); }
+
+/* ===== BOOKS & WORKS ===== */
+.works-section { margin-bottom: 48px; }
+.works-section h3 {
+  font-size: 1.25rem; margin-bottom: 20px; display: flex;
+  align-items: center; gap: 12px;
+}
+.works-section h3::after { content: ''; flex: 1; height: 1px; background: var(--light-grey); }
+.books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+.book-card {
+  background: #fff; border: 1px solid var(--light-grey); border-radius: 12px;
+  padding: 22px; transition: all 0.3s; position: relative;
+}
+.book-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.book-card .book-icon { font-size: 1.5rem; margin-bottom: 10px; }
+.book-card h4 { font-size: 0.92rem; font-weight: 700; line-height: 1.4; margin-bottom: 4px; font-family: 'DM Sans', sans-serif; }
+.book-card .book-genre { font-size: 0.75rem; color: var(--grey); }
+.book-card .original-badge {
+  position: absolute; top: 10px; right: 10px; background: var(--gold);
+  color: var(--black); font-size: 0.6rem; font-weight: 700;
+  padding: 2px 8px; border-radius: 4px; text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.book-card .classic-badge {
+  position: absolute; top: 10px; right: 10px; background: #ede7f6;
+  color: #7c4dff; font-size: 0.6rem; font-weight: 700;
+  padding: 2px 8px; border-radius: 4px; text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===== SHOP BANNER ===== */
+.shop-banner {
+  background: linear-gradient(135deg, var(--cream) 0%, #f5efe3 100%);
+  border: 2px solid var(--light-grey); border-radius: 16px;
+  padding: 40px; display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.shop-banner h3 { font-size: 1.4rem; margin-bottom: 6px; }
+.shop-banner p { color: var(--grey); font-size: 0.9rem; }
+
+/* ===== COMMENTARY ===== */
+#commentary { background: linear-gradient(170deg, #1a1a1a 0%, #252525 100%); color: #fff; }
+#commentary .section-label { color: var(--gold); }
+#commentary .section-label::before { background: var(--gold); }
+#commentary .section-title { color: #fff; }
+#commentary .section-desc { color: #aaa; }
+.commentary-topics { display: flex; flex-wrap: wrap; gap: 10px; }
+.commentary-topics span {
+  padding: 8px 18px; border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px; font-size: 0.85rem; color: #ccc;
+}
+
+/* ===== SCHEDULE ===== */
+.schedule-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.schedule-day {
+  background: #fff; border: 1px solid var(--light-grey); border-radius: 10px;
+  padding: 18px 10px; text-align: center; transition: all 0.3s;
+}
+.schedule-day:hover { border-color: var(--gold); }
+.schedule-day .day-name { font-weight: 700; font-size: 0.88rem; margin-bottom: 4px; }
+.schedule-day .day-status { font-size: 0.75rem; color: var(--green); font-weight: 600; }
+
+/* ===== REGIONS ===== */
+.regions-flex { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.region-chip {
+  display: flex; align-items: center; gap: 8px; padding: 10px 20px;
+  background: #fff; border: 1px solid var(--light-grey); border-radius: 10px;
+  font-weight: 500; font-size: 0.88rem; transition: all 0.2s;
+}
+.region-chip:hover { border-color: var(--gold); }
+.region-chip .flag { font-size: 1.2rem; }
+
+/* ===== CONTACT ===== */
+#contact { background: var(--black); color: #fff; padding: 80px 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-info h2 { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+.contact-info .cn-title { font-family: 'Noto Sans SC', sans-serif; color: var(--red-light); font-size: 1.1rem; margin-bottom: 20px; }
+.contact-info p { color: #aaa; margin-bottom: 20px; font-size: 0.95rem; }
+.contact-email {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px; padding: 14px 22px; margin-bottom: 16px;
+  color: var(--gold); font-weight: 600; font-size: 0.95rem;
+  transition: all 0.3s; word-break: break-all;
+}
+.contact-email:hover { background: rgba(255,255,255,0.1); }
+.contact-method {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #ccc; font-size: 0.9rem;
+}
+.contact-method strong { color: #fff; }
+.contact-form {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 32px;
+}
+.contact-form h3 { font-size: 1.15rem; color: #fff; margin-bottom: 18px; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 0.8rem; color: #aaa; margin-bottom: 5px; font-weight: 500; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 11px 14px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);
+  color: #fff; font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--gold);
+}
+.form-group select option { background: var(--black); }
+.form-group textarea { resize: vertical; min-height: 80px; }
+.form-submit {
+  width: 100%; padding: 13px; border: none; border-radius: 8px;
+  background: var(--gold); color: var(--black); font-weight: 700;
+  font-size: 0.95rem; cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.2s; margin-top: 4px;
+}
+.form-submit:hover { opacity: 0.9; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #111; color: #888; padding: 36px 0 20px;
+  font-size: 0.82rem; border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+.footer-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.05rem; color: #fff; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { color: #888; transition: color 0.2s; font-size: 0.82rem; }
+.footer-links a:hover { color: var(--gold); }
+
+/* ===== ANIMATIONS ===== */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .prog-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .schedule-grid { grid-template-columns: repeat(3, 1fr); }
+  .services-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .schedule-grid { grid-template-columns: repeat(2, 1fr); }
+  .books-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.2rem; }
+  .exercise-card { padding: 24px; }
+  .exercise-sentence { font-size: 1.1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span class="dot"></span>Meriti Education</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#programmes">Programmes</a>
+      <a href="#exercise">Practice</a>
+      <a href="#works">Books</a>
+      <a href="#commentary">Commentary</a>
+      <a href="https://meritienglish.com" target="_blank">MeritiEnglish.com</a>
+      <a href="#contact" class="nav-cta">Book a Lesson</a>
+    </div>
+    <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMobile()">About</a>
+  <a href="#services" onclick="toggleMobile()">Services</a>
+  <a href="#programmes" onclick="toggleMobile()">Programmes</a>
+  <a href="#exercise" onclick="toggleMobile()">Practice</a>
+  <a href="#works" onclick="toggleMobile()">Books & Works</a>
+  <a href="#commentary" onclick="toggleMobile()">Commentary</a>
+  <a href="https://meritienglish.com" target="_blank" onclick="toggleMobile()">MeritiEnglish.com</a>
+  <a href="#contact" onclick="toggleMobile()">Book a Lesson</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Floating 提高 particles -->
+  <span class="tigao-float t1">提高提高</span>
+  <span class="tigao-float t2">提高</span>
+  <span class="tigao-float t3">进步</span>
+  <span class="tigao-float t4">提高提高</span>
+  <span class="tigao-float t5">进步</span>
+  <div class="container hero-content">
+    <div class="hero-tagline">Let's Go English!</div>
+    <h1>
+      Meriti<br>Education
+      <span class="cn">美睿提教育</span>
+    </h1>
+    <p class="hero-sub">
+      Helping students worldwide improve proficiency in English &mdash; speaking, reading, and writing.
+      With over 15 years in education, Ms. Anna (<span class="cn">安娜老师</span>) is dedicated to helping every student reach their potential.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Book a Lesson</a>
+      <a href="#exercise" class="btn-secondary">Try a Free Exercise</a>
+    </div>
+    <div class="tigao-pulse">
+      提高提高 <span class="en-small">t&iacute; g&amacr;o &middot; improve, improve</span>
+    </div>
+  </div>
+</section>
+
+<!-- BLITZ MARQUEE -->
+<div class="blitz-strip">
+  <div class="blitz-track">
+    <span class="b-en">IMPROVE</span>
+    <span class="b-cn">提高</span>
+    <span class="b-gold">IMPROVE</span>
+    <span class="b-cn">进步</span>
+    <span class="b-en">IMPROVE</span>
+    <span class="b-cn">提高提高</span>
+    <span class="b-gold">LET'S GO ENGLISH!</span>
+    <span class="b-cn">加油</span>
+    <span class="b-en">AMELIORER</span>
+    <span class="b-cn">改善</span>
+    <span class="b-gold">MEJORAR</span>
+    <span class="b-cn">提升</span>
+    <span class="b-en">VERBESSERN</span>
+    <span class="b-cn">进步进步</span>
+    <!-- duplicate for seamless loop -->
+    <span class="b-en">IMPROVE</span>
+    <span class="b-cn">提高</span>
+    <span class="b-gold">IMPROVE</span>
+    <span class="b-cn">进步</span>
+    <span class="b-en">IMPROVE</span>
+    <span class="b-cn">提高提高</span>
+    <span class="b-gold">LET'S GO ENGLISH!</span>
+    <span class="b-cn">加油</span>
+    <span class="b-en">AMELIORER</span>
+    <span class="b-cn">改善</span>
+    <span class="b-gold">MEJORAR</span>
+    <span class="b-cn">提升</span>
+    <span class="b-en">VERBESSERN</span>
+    <span class="b-cn">进步进步</span>
+  </div>
+</div>
+
+<!-- REVERSE BLITZ — 提高提高 focused -->
+<div class="blitz-strip-reverse">
+  <div class="blitz-track-reverse">
+    <span>提高提高</span>
+    <span class="rev-en">IMPROVE IMPROVE</span>
+    <span>提高</span>
+    <span class="rev-en">IMPROVE</span>
+    <span>进步进步</span>
+    <span class="rev-en">PROGRESS</span>
+    <span>提高提高</span>
+    <span class="rev-en">KEEP IMPROVING</span>
+    <span>加油加油</span>
+    <span class="rev-en">LET'S GO!</span>
+    <span>提高</span>
+    <span class="rev-en">GROW</span>
+    <!-- duplicate for seamless loop -->
+    <span>提高提高</span>
+    <span class="rev-en">IMPROVE IMPROVE</span>
+    <span>提高</span>
+    <span class="rev-en">IMPROVE</span>
+    <span>进步进步</span>
+    <span class="rev-en">PROGRESS</span>
+    <span>提高提高</span>
+    <span class="rev-en">KEEP IMPROVING</span>
+    <span>加油加油</span>
+    <span class="rev-en">LET'S GO!</span>
+    <span>提高</span>
+    <span class="rev-en">GROW</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="alt-bg">
+  <div class="container">
+    <div class="about-grid">
+      <div class="fade-up">
+        <div class="section-label">About Ms. Anna <span class="cn" style="letter-spacing:0">关于安娜老师</span></div>
+        <h2 class="section-title">A Firm Believer in Self-Improvement</h2>
+        <p class="section-desc" style="margin-bottom: 16px;">
+          With over 15 years in education, Ms. Anna (Annie) has taught English language across the globe &mdash; from Hong Kong to the United Kingdom. An avid reader, traveller, children's author, and passionate educator, she brings a wealth of knowledge to every lesson.
+        </p>
+        <p style="color: var(--grey); font-size: 0.92rem; margin-bottom: 16px;">
+          <span class="cn" style="font-size: 0.92rem;">安娜老师拥有超过15年的教育经验，曾在香港和英国教授英语。她是一位热爱阅读的儿童作家和充满热情的教育者。</span>
+        </p>
+        <p style="color: var(--grey); font-size: 0.92rem;">
+          <strong>Mission:</strong> A strong desire to help students reach their potential and goals.<br>
+          <span class="cn">使命：帮助每一位学生实现自己的潜力和目标。</span>
+        </p>
+        <div class="about-stats">
+          <div class="stat-card"><div class="num">15+</div><div class="label">Years in Education</div></div>
+          <div class="stat-card"><div class="num">10</div><div class="label">Years in Hong Kong</div></div>
+          <div class="stat-card"><div class="num">5+</div><div class="label">Countries Served</div></div>
+          <div class="stat-card"><div class="num">13&ndash;65</div><div class="label">Age Range</div></div>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay: 0.15s;">
+        <h3 style="font-size: 1.05rem; margin-bottom: 16px; font-family: 'DM Sans', sans-serif; font-weight: 700;">Credentials & Expertise</h3>
+        <div class="about-credentials">
+          <div class="credential">
+            <div class="credential-icon">&#127891;</div>
+            <div><h4>University of Westminster</h4><p>Merit / 2:1 Classification</p></div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon">&#127979;</div>
+            <div><h4>University of Hong Kong</h4><p>Teaching Certificate / Diploma &mdash; Continued Education</p></div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon">&#128483;</div>
+            <div><h4>Speech & Communication</h4><p>Public speaking, pronunciation, fluency coaching</p></div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon">&#128214;</div>
+            <div><h4>Reading & Comprehension</h4><p>Critical reading, literary analysis, study skills</p></div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon">&#9997;&#65039;</div>
+            <div><h4>Creative Writing & Grammar</h4><p>Stories, essays, punctuation, tenses, structure</p></div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon">&#128218;</div>
+            <div><h4>Children's Author</h4><p>Author of several original short stories and poems</p></div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon">&#127464;&#127475;</div>
+            <div><h4>Basic Chinese Instruction <span class="cn">基础中文</span></h4><p>Simple Chinese language available for beginners</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">What We Offer <span class="cn" style="letter-spacing:0">我们的服务</span></div>
+      <h2 class="section-title">Services & Expertise</h2>
+      <p class="section-desc">Comprehensive English language education tailored to each student's ability, learning style, and goals. Flexibility will certainly apply.</p>
+    </div>
+    <div class="services-grid fade-up">
+      <div class="service-card">
+        <div class="service-icon">&#128483;</div>
+        <h3>Speech & Speaking</h3>
+        <p>Fluency, confidence, pronunciation, and presentation skills through guided conversation.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128214;</div>
+        <h3>Reading & Comprehension</h3>
+        <p>Build strong reading through classic and contemporary literature, comprehension exercises.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#9997;&#65039;</div>
+        <h3>Creative Writing</h3>
+        <p>Unleash creativity through stories, poems, essays, and structured writing practice.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128218;</div>
+        <h3>Grammar & Vocabulary</h3>
+        <p>Master tenses, sentence structure, punctuation, and expand vocabulary at every level.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128221;</div>
+        <h3>Exam Preparation</h3>
+        <p>IELTS, TOEFL, Cambridge, GCSE, IB, SAT English, BTEC, AP, and B1/B2 exam prep.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128206;</div>
+        <h3>Worksheets & Study Aids</h3>
+        <p>Original worksheets, revision guides, exam-type questions, writer's aids, and study habit materials.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#127464;&#127475;</div>
+        <h3>Basic Chinese <span class="cn">基础中文</span></h3>
+        <p>Simple Chinese language instruction for beginners looking to learn the basics of Mandarin.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128290;</div>
+        <h3>Basic Mathematics</h3>
+        <p>Foundational math for younger learners (up to K3 and primary/early secondary exam prep).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMMES -->
+<section id="programmes" class="alt-bg">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Programmes <span class="cn" style="letter-spacing:0">课程设置</span></div>
+      <h2 class="section-title">Structured Learning at Every Level</h2>
+      <p class="section-desc">Tailored to your level of education and ability. Subject to change depending on the student's competencies &mdash; audio/visual learners accommodated.</p>
+    </div>
+    <div class="prog-grid fade-up">
+      <div class="prog-card beginner">
+        <div class="prog-badge">Beginner &middot; 初级</div>
+        <h3>Primary School</h3>
+        <div class="cn-sub">小学阶段</div>
+        <p>Building strong foundations in English vocabulary, grammar, reading, and basic writing for young learners.</p>
+        <div class="prog-subjects">
+          <span>English</span><span>Basic Math*</span><span>Chinese</span><span>Vocabulary</span><span>Grammar</span>
+        </div>
+      </div>
+      <div class="prog-card intermediate">
+        <div class="prog-badge">Intermediate &middot; 中级</div>
+        <h3>Secondary School</h3>
+        <div class="cn-sub">中学阶段</div>
+        <p>Critical reading, essay writing, speech skills, and preparing for GCSE, IELTS, and other examinations.</p>
+        <div class="prog-subjects">
+          <span>English Language</span><span>English Literature</span><span>Speech</span><span>Creative Writing</span>
+        </div>
+      </div>
+      <div class="prog-card advanced">
+        <div class="prog-badge">Advanced &middot; 高级</div>
+        <h3>University & Beyond</h3>
+        <div class="cn-sub">大学及以上</div>
+        <p>Advanced fluency, academic writing, professional communication, and preparation for TOEFL, Cambridge, AP, and IB.</p>
+        <div class="prog-subjects">
+          <span>Academic Writing</span><span>TOEFL / IELTS</span><span>Cambridge</span><span>AP / IB / SAT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXAMS -->
+    <div class="fade-up" style="margin-top: 48px;">
+      <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Exam Preparation <span class="cn" style="font-size: 0.85rem;">考试准备</span></h3>
+      <p style="color: var(--grey); font-size: 0.88rem; margin-bottom: 12px;">Supporting students for a range of standardised and school-based examinations.</p>
+      <div class="exam-grid">
+        <div class="exam-tag">B1 / B2 English</div>
+        <div class="exam-tag">Cambridge</div>
+        <div class="exam-tag">IELTS</div>
+        <div class="exam-tag">TOEFL</div>
+        <div class="exam-tag">SAT English</div>
+        <div class="exam-tag">GCSE</div>
+        <div class="exam-tag">IB</div>
+        <div class="exam-tag">BTEC</div>
+        <div class="exam-tag">AP</div>
+        <div class="exam-tag">Standard K&ndash;12+</div>
+      </div>
+    </div>
+
+    <!-- TEACHING TEXTS -->
+    <div class="fade-up" style="margin-top: 40px;">
+      <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Study Materials & Teaching Texts <span class="cn" style="font-size: 0.85rem;">教学材料</span></h3>
+      <p style="color: var(--grey); font-size: 0.88rem; margin-bottom: 12px;">Classic and contemporary texts alongside original worksheets and revision resources.</p>
+      <div class="exam-grid">
+        <div class="exam-tag">1984 &mdash; George Orwell</div>
+        <div class="exam-tag">The Merchant of Venice &mdash; Shakespeare</div>
+        <div class="exam-tag">Animal Farm &mdash; George Orwell</div>
+        <div class="exam-tag">Dr. Jekyll & Mr. Hyde &mdash; R.L. Stevenson</div>
+        <div class="exam-tag">Original Worksheets</div>
+        <div class="exam-tag">Exam-Type Questions</div>
+        <div class="exam-tag">Revision & Study Guides</div>
+        <div class="exam-tag">Writer's Aid</div>
+      </div>
+    </div>
+
+    <!-- REGIONS -->
+    <div class="fade-up" style="margin-top: 40px;">
+      <h3 style="font-size: 1.15rem; margin-bottom: 6px;">Available Globally <span class="cn" style="font-size: 0.85rem;">全球服务</span></h3>
+      <div class="regions-flex">
+        <div class="region-chip"><span class="flag">&#127464;&#127475;</span> China</div>
+        <div class="region-chip"><span class="flag">&#127469;&#127472;</span> Hong Kong</div>
+        <div class="region-chip"><span class="flag">&#127468;&#127463;</span> United Kingdom</div>
+        <div class="region-chip"><span class="flag">&#127482;&#127480;</span> United States</div>
+        <div class="region-chip"><span class="flag">&#127464;&#127462;</span> Canada</div>
+        <div class="region-chip"><span class="flag">&#127758;</span> Global</div>
+      </div>
+    </div>
+
+    <!-- AGE NOTE -->
+    <div class="fade-up" style="margin-top: 32px; padding: 18px 24px; background: #fff; border-radius: 10px; border-left: 4px solid var(--red); font-size: 0.88rem; color: var(--grey);">
+      <strong style="color: var(--black);">Age Range:</strong> Core students aged <strong>13&ndash;65</strong> for English language learning. Math available up to K3. Students aged 11&ndash;13 accommodated for exam preparation. Teens and adults. *Basic math for younger learners.
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE EXERCISE -->
+<section id="exercise">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Interactive Practice <span class="cn" style="letter-spacing:0; color: var(--gold);">互动练习</span></div>
+      <h2 class="section-title">Choose the Right Word</h2>
+      <p class="section-desc">Test your English with our interactive exercises. Select a level and category to begin.</p>
+    </div>
+    <div class="exercise-card fade-up">
+      <div class="exercise-level-tabs">
+        <button class="active" onclick="setLevel('beginner')">Beginner</button>
+        <button onclick="setLevel('intermediate')">Intermediate</button>
+        <button onclick="setLevel('advanced')">Advanced</button>
+      </div>
+      <div class="exercise-type-tabs">
+        <button class="active" onclick="setType('grammar')">Grammar</button>
+        <button onclick="setType('vocabulary')">Vocabulary</button>
+        <button onclick="setType('punctuation')">Punctuation</button>
+      </div>
+      <div id="exerciseArea">
+        <div class="exercise-sentence" id="exSentence"></div>
+        <div class="exercise-options" id="exOptions"></div>
+        <div class="exercise-feedback" id="exFeedback"></div>
+        <div class="exercise-nav">
+          <button id="exPrev" onclick="prevQ()" disabled>&larr; Previous</button>
+          <button id="exNext" onclick="nextQ()">Next &rarr;</button>
+        </div>
+        <div style="margin-top: 14px; font-size: 0.78rem; color: #666;">
+          Question <span id="exCount">1</span> of <span id="exTotal">5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS & ORIGINAL WORKS -->
+<section id="works" class="alt-bg">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Books & Original Works <span class="cn" style="letter-spacing:0">书籍与原创作品</span></div>
+      <h2 class="section-title">Written by Ms. Anna</h2>
+      <p class="section-desc">Original stories, poems, and children's books &mdash; a wealth of creative content by a passionate author and educator.</p>
+    </div>
+
+    <!-- Kids -->
+    <div class="works-section fade-up">
+      <h3>Children's Stories <span class="cn" style="font-size: 0.85rem; font-weight: 400;">儿童故事</span></h3>
+      <div class="books-grid">
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#127795;</div><h4>Benny's Tree</h4><div class="book-genre">Children's Story</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#128038;</div><h4>Creek's Corner</h4><div class="book-genre">Children's Story</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#128017;</div><h4>Fox and Lamb</h4><div class="book-genre">Children's Story</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#127793;</div><h4>The Naughty Seed</h4><div class="book-genre">Children's Story</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#128028;</div><h4>Animals Celebrate</h4><div class="book-genre">Lunar New Year &middot; Zodiac &middot; Year of the Ant</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#129418;</div><h4>The Hungry Fox</h4><div class="book-genre">Children's Story</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#127875;</div><h4>The Talking Pumpkin</h4><div class="book-genre">Children's Story</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#127774;</div><h4>Land, Sun, and Rain</h4><div class="book-genre">Children's Story</div></div>
+      </div>
+    </div>
+
+    <!-- Adult -->
+    <div class="works-section fade-up">
+      <h3>Adult Fiction <span class="cn" style="font-size: 0.85rem; font-weight: 400;">成人小说</span></h3>
+      <div class="books-grid">
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#127769;</div><h4>Moon</h4><div class="book-genre">Novel &mdash; The Moon and a Typhoon</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#127786;</div><h4>Hurricane Ivan</h4><div class="book-genre">Novel</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#128148;</div><h4>Mr. Love Bah</h4><div class="book-genre">Novel &mdash; Identity & Self-Discovery</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#128273;</div><h4>Little May the Servant</h4><div class="book-genre">Novel &mdash; Secrets of Little May</div></div>
+      </div>
+    </div>
+
+    <!-- Poems -->
+    <div class="works-section fade-up">
+      <h3>Poetry <span class="cn" style="font-size: 0.85rem; font-weight: 400;">诗歌</span></h3>
+      <div class="books-grid">
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#128330;</div><h4>When Death Draws Near</h4><div class="book-genre">Poem &mdash; In memory of Anna's lost sister</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#128105;</div><h4>Old Mrs. Tubby</h4><div class="book-genre">Poem</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#129689;</div><h4>Penny in d'Well</h4><div class="book-genre">Poem</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#127809;</div><h4>If I Should Fall</h4><div class="book-genre">Poem</div></div>
+        <div class="book-card"><div class="original-badge">Original</div><div class="book-icon">&#128394;</div><h4>The Magic Pen</h4><div class="book-genre">Poem</div></div>
+      </div>
+    </div>
+
+    <!-- SHOP BANNER -->
+    <div class="shop-banner fade-up">
+      <div>
+        <h3>Shop Worksheets, Books & Study Materials</h3>
+        <p>Browse our collection of worksheets, revision aids, writer's guides, and original books for kids and adults. <span class="cn">浏览我们的工作表、复习资料和原创书籍。</span></p>
+      </div>
+      <a href="#contact" class="btn-primary">Enquire to Purchase</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- POLITICAL COMMENTARY -->
+<section id="commentary">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-label">Commentary & Analysis</div>
+      <h2 class="section-title">Political & Global Affairs</h2>
+      <p class="section-desc">Basic political commentaries on contemporary and historical politics. Analysis of global affairs, conflicts, disputes, and their root causes &mdash; written for educational purposes.</p>
+    </div>
+    <div class="commentary-topics fade-up">
+      <span>Contemporary Politics</span>
+      <span>Historical Politics</span>
+      <span>Global Conflicts & Disputes</span>
+      <span>Root Cause Analysis</span>
+      <span>Current Affairs</span>
+      <span>Exam-Type Commentary Questions</span>
+      <span>Educational Analysis</span>
+      <span>Writer's Aid</span>
+      <span>General Educational Advice</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <h2>Get in Touch</h2>
+        <div class="cn-title">联系我们</div>
+        <p>Reach out to set up Zoom meetings. We look forward to helping you on your English learning journey.</p>
+        <a href="mailto:welcome@meritienglish.com" class="contact-email">
+          &#9993;&#65039; welcome@meritienglish.com
+        </a>
+        <a href="mailto:hi@meritieducation.com" class="contact-email" style="margin-left: 0;">
+          &#9993;&#65039; hi@meritieducation.com
+        </a>
+        <div class="contact-method"><strong>Platform:</strong>&nbsp;Zoom</div>
+        <div class="contact-method"><strong>Sessions:</strong>&nbsp;40 min &mdash; 1 hr 15 min</div>
+        <div class="contact-method"><strong>Availability:</strong>&nbsp;Monday &ndash; Saturday</div>
+        <div class="contact-method"><strong>Core Ages:</strong>&nbsp;13 &ndash; 65 (exceptions for K3+ & exam prep)</div>
+        <div class="contact-method"><strong>Regions:</strong>&nbsp;&#127464;&#127475; &#127469;&#127472; &#127468;&#127463; &#127482;&#127480; &#127464;&#127462; &#127758;</div>
+        <div class="contact-method"><strong>Websites:</strong>&nbsp;<a href="https://meritienglish.com" target="_blank" style="color: var(--gold);">meritienglish.com</a> &nbsp;&middot;&nbsp; <a href="https://meritieducation.com" target="_blank" style="color: var(--gold);">meritieducation.com</a></div>
+      </div>
+      <div class="contact-form fade-up" style="transition-delay: 0.15s;">
+        <h3>Book a Lesson <span class="cn" style="font-size: 0.85rem;">预约课程</span></h3>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Level</label>
+          <select>
+            <option>Beginner (Primary)</option>
+            <option>Intermediate (Secondary)</option>
+            <option>Advanced (University+)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Session Type</label>
+          <select>
+            <option>40 minutes &mdash; &pound;35</option>
+            <option>1 hour 15 minutes &mdash; &pound;55</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message (optional)</label>
+          <textarea placeholder="Tell us about your goals..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('Thank you! Please email welcome@meritienglish.com or hi@meritieducation.com to confirm your booking. We will be in touch shortly!')">Send Booking Request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Meriti Education <span class="cn" style="font-size: 0.82rem; margin-left: 6px;">美睿提教育</span></div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#programmes">Programmes</a>
+        <a href="#works">Books</a>
+        <a href="#contact">Contact</a>
+        <a href="https://meritienglish.com" target="_blank">MeritiEnglish.com</a>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 16px; font-size: 0.78rem;">
+      <a href="mailto:welcome@meritienglish.com" style="color: var(--gold);">welcome@meritienglish.com</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:hi@meritieducation.com" style="color: var(--gold);">hi@meritieducation.com</a>
+    </div>
+    <div style="text-align: center; margin-top: 12px; color: #555; font-size: 0.78rem;">
+      <a href="https://meritieducation.com" style="color: #888;">meritieducation.com</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://meritienglish.com" target="_blank" style="color: #888;">meritienglish.com</a>
+    </div>
+    <div style="text-align: center; margin-top: 12px; color: #555; font-size: 0.72rem;">
+      &copy; 2025 Meriti Education. All original works & content by Ms. Anna. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Mobile menu
+function toggleMobile() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Fade-up on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// ===== INTERACTIVE EXERCISE ENGINE =====
+const exercises = {
+  beginner: {
+    grammar: [
+      { sentence: 'She ___ to school every day.', options: ['go', 'goes', 'going', 'gone'], answer: 1, explain: '"She" is third person singular, so we use "goes" (present simple).' },
+      { sentence: 'I ___ a student.', options: ['is', 'are', 'am', 'be'], answer: 2, explain: 'With "I" we always use "am".' },
+      { sentence: 'They ___ playing in the park.', options: ['is', 'was', 'are', 'am'], answer: 2, explain: '"They" is plural, so we use "are".' },
+      { sentence: 'He ___ his homework yesterday.', options: ['do', 'does', 'did', 'done'], answer: 2, explain: '"Yesterday" tells us it is past tense — "did".' },
+      { sentence: 'We ___ English on Mondays.', options: ['study', 'studies', 'studying', 'studied'], answer: 0, explain: '"We" takes the base form in present simple — "study".' }
+    ],
+    vocabulary: [
+      { sentence: 'The cat sat on the ___.', options: ['mat', 'map', 'mop', 'mud'], answer: 0, explain: '"Mat" is a small rug — "the cat sat on the mat".' },
+      { sentence: 'I drink ___ every morning.', options: ['water', 'paper', 'pencil', 'table'], answer: 0, explain: 'Water is a liquid we drink.' },
+      { sentence: 'The ___ shines in the sky.', options: ['moon', 'spoon', 'sun', 'bun'], answer: 2, explain: 'The sun shines in the sky during the day.' },
+      { sentence: 'She reads a ___ before bed.', options: ['book', 'cook', 'hook', 'look'], answer: 0, explain: 'A "book" is what we read.' },
+      { sentence: 'The opposite of "hot" is ___.', options: ['warm', 'cold', 'cool', 'mild'], answer: 1, explain: '"Cold" is the direct opposite of "hot".' }
+    ],
+    punctuation: [
+      { sentence: 'Which is correct?', options: ['i am happy.', 'I am happy.', 'I am Happy.', 'i Am happy.'], answer: 1, explain: 'Sentences start with a capital letter. "I" is always capitalised.' },
+      { sentence: 'Which sentence is punctuated correctly?', options: ['Hello how are you', 'Hello, how are you?', 'hello, How are You?', 'Hello How Are You'], answer: 1, explain: 'Comma after "Hello" and a question mark for questions.' },
+      { sentence: 'Choose the correct ending: "What is your name___"', options: ['.', '!', '?', ','], answer: 2, explain: 'Questions end with a question mark (?).' },
+      { sentence: '"My dog___ cat___ and bird are friendly."', options: ["' '", ', ,', '; ;', '. .'], answer: 1, explain: 'We use commas to separate items in a list.' },
+      { sentence: 'Which needs an apostrophe?', options: ['the dogs bone', 'the dogs run', 'the dogs bark', 'the dogs play'], answer: 0, explain: '"The dog\'s bone" — the apostrophe shows possession.' }
+    ]
+  },
+  intermediate: {
+    grammar: [
+      { sentence: 'If I ___ you, I would apologise.', options: ['was', 'were', 'am', 'be'], answer: 1, explain: 'Second conditional uses "were" for all subjects (subjunctive mood).' },
+      { sentence: 'She has been ___ English for three years.', options: ['study', 'studied', 'studying', 'studies'], answer: 2, explain: 'Present perfect continuous: "has been" + verb-ing.' },
+      { sentence: 'The letter ___ already ___ by the time I arrived.', options: ['has / sent', 'had / been sent', 'was / sending', 'is / sent'], answer: 1, explain: 'Past perfect passive: "had been sent".' },
+      { sentence: 'Neither the teacher ___ the students ___ aware of the change.', options: ['or / was', 'nor / were', 'nor / was', 'or / were'], answer: 1, explain: '"Neither...nor" — verb agrees with closest subject ("students" = "were").' },
+      { sentence: 'He insisted that she ___ present at the meeting.', options: ['is', 'was', 'be', 'being'], answer: 2, explain: 'Subjunctive after "insist that" uses the base form "be".' }
+    ],
+    vocabulary: [
+      { sentence: 'The politician tried to ___ the controversy.', options: ['evade', 'invade', 'pervade', 'cascade'], answer: 0, explain: '"Evade" means to avoid or escape from something.' },
+      { sentence: 'Her ___ of the topic impressed the panel.', options: ['ignorance', 'grasp', 'avoidance', 'disdain'], answer: 1, explain: '"Grasp" means a thorough understanding of a subject.' },
+      { sentence: 'The scientist made a ___ discovery.', options: ['mundane', 'groundbreaking', 'superficial', 'trivial'], answer: 1, explain: '"Groundbreaking" means innovative and pioneering.' },
+      { sentence: 'He spoke with great ___ about the injustice.', options: ['apathy', 'indifference', 'eloquence', 'confusion'], answer: 2, explain: '"Eloquence" means fluent and persuasive speaking.' },
+      { sentence: 'The new policy had ___ effects on the community.', options: ['negligible', 'profound', 'invisible', 'scarce'], answer: 1, explain: '"Profound" means very great or deep.' }
+    ],
+    punctuation: [
+      { sentence: 'Choose the correct use of the semicolon:', options: ['I went home; and slept.', 'I was tired; I went home early.', 'I was; tired so I left.', 'Tired; I was, so home.'], answer: 1, explain: 'A semicolon joins two independent clauses that are closely related.' },
+      { sentence: '"The dog wagged ___ tail."', options: ["it's", "its", "its'", "its's"], answer: 1, explain: '"Its" (no apostrophe) is possessive. "It\'s" means "it is".' },
+      { sentence: 'Which uses the colon correctly?', options: ['She bought: eggs and milk.', 'She needed three things: eggs, milk, and bread.', 'She: needed three things.', 'She needed: things.'], answer: 1, explain: 'A colon introduces a list after a complete sentence.' },
+      { sentence: 'Where does the comma go? "However___ the plan failed."', options: ['before "However"', 'after "However"', 'no comma needed', 'after "the"'], answer: 1, explain: 'A comma follows introductory transitional words like "However".' },
+      { sentence: 'Choose the correct possessive: "The ___ books were on the shelf."', options: ["childrens'", "children's", "childrens", "children"], answer: 1, explain: '"Children" is already plural, so apostrophe before "s": children\'s.' }
+    ]
+  },
+  advanced: {
+    grammar: [
+      { sentence: 'Had she ___ earlier, she would have caught the train.', options: ['left', 'leave', 'leaving', 'leaves'], answer: 0, explain: 'Third conditional: "Had" + past participle. "Had she left" is inverted.' },
+      { sentence: 'Not only ___ the exam, but she also received the highest mark.', options: ['she passed', 'did she pass', 'she did pass', 'has she passed'], answer: 1, explain: '"Not only" at the start requires subject-verb inversion.' },
+      { sentence: 'The report, ___ findings were controversial, was later retracted.', options: ['which', 'whose', 'that', 'whom'], answer: 1, explain: '"Whose" is the possessive relative pronoun.' },
+      { sentence: 'It is imperative that he ___ the document before Friday.', options: ['submits', 'submit', 'submitted', 'will submit'], answer: 1, explain: 'Subjunctive after "it is imperative that" — base form without "s".' },
+      { sentence: 'Scarcely ___ the announcement been made ___ protests erupted.', options: ['has / when', 'had / when', 'had / than', 'has / than'], answer: 1, explain: '"Scarcely had...when" is the correct correlative structure.' }
+    ],
+    vocabulary: [
+      { sentence: "The author's prose style is deliberately ___; every word is essential.", options: ['verbose', 'laconic', 'grandiloquent', 'prolix'], answer: 1, explain: '"Laconic" means using very few words — concise and spare.' },
+      { sentence: "The diplomat's ___ response avoided offending either side.", options: ['bellicose', 'equivocal', 'truculent', 'unequivocal'], answer: 1, explain: '"Equivocal" means deliberately ambiguous.' },
+      { sentence: 'His argument, though ___, lacked empirical support.', options: ['specious', 'meritorious', 'cogent', 'fatuous'], answer: 2, explain: '"Cogent" means clear and logical — but can still lack evidence.' },
+      { sentence: 'The policy change proved ___, satisfying neither side.', options: ['efficacious', 'anodyne', 'contentious', 'ameliorative'], answer: 1, explain: '"Anodyne" means unlikely to cause offence but unlikely to satisfy.' },
+      { sentence: "She delivered a ___ critique of the institution's failings.", options: ['perfunctory', 'laudatory', 'trenchant', 'diffident'], answer: 2, explain: '"Trenchant" means vigorous, incisive, and well-articulated.' }
+    ],
+    punctuation: [
+      { sentence: 'Which correctly uses the em dash?', options: ['She was determined—nothing could stop her.', 'She was determined — nothing, could stop her.', 'She was—determined nothing could stop her.', 'She—was determined nothing could stop her.'], answer: 0, explain: 'The em dash sets off a dramatic aside with no surrounding spaces.' },
+      { sentence: 'Correct ellipsis in formal writing:', options: ['She hesitated...then spoke.', 'She hesitated ... then spoke.', 'She hesitated . . . then spoke.', 'She hesitated…. then spoke.'], answer: 2, explain: 'In formal writing, ellipsis points are spaced: . . . (Chicago Manual of Style).' },
+      { sentence: 'Full stop placement: "She said, \'I agree with the plan___\'"', options: ['Before the closing quote', 'After the closing quote', 'Depends on British vs American convention', 'No full stop needed'], answer: 2, explain: 'British English places it outside; American English places it inside.' },
+      { sentence: 'Correct subjunctive comma:', options: ['If elected, the candidate promised reform.', 'If elected the candidate, promised reform.', 'If, elected the candidate promised, reform.', 'If elected the candidate promised reform.'], answer: 0, explain: 'A comma follows the introductory conditional clause "If elected".' },
+      { sentence: 'Correctly punctuated title:', options: ["The Author's Dilemma: A Study", "The Authors Dilemma; A Study", "The Author's Dilemma; a Study", "The Authors' Dilemma, A Study"], answer: 0, explain: "Colon separates title from subtitle. Singular possessive: Author's." }
+    ]
+  }
+};
+
+let currentLevel = 'beginner';
+let currentType = 'grammar';
+let currentQ = 0;
+let answered = {};
+
+function setLevel(level) {
+  currentLevel = level;
+  currentQ = 0;
+  answered = {};
+  document.querySelectorAll('.exercise-level-tabs button').forEach((b, i) => {
+    b.classList.toggle('active', ['beginner','intermediate','advanced'][i] === level);
+  });
+  renderQ();
+}
+
+function setType(type) {
+  currentType = type;
+  currentQ = 0;
+  answered = {};
+  document.querySelectorAll('.exercise-type-tabs button').forEach((b, i) => {
+    b.classList.toggle('active', ['grammar','vocabulary','punctuation'][i] === type);
+  });
+  renderQ();
+}
+
+function renderQ() {
+  const qs = exercises[currentLevel][currentType];
+  const q = qs[currentQ];
+  const key = `${currentLevel}-${currentType}-${currentQ}`;
+  document.getElementById('exSentence').innerHTML = q.sentence.replace('___',
+    `<span class="exercise-blank" id="blankSpot">${answered[key] !== undefined ? q.options[answered[key]] : '______'}</span>`
+  );
+  const blank = document.getElementById('blankSpot');
+  if (answered[key] !== undefined) {
+    blank.classList.add(answered[key] === q.answer ? 'correct' : 'wrong');
+  }
+  let optHtml = '';
+  q.options.forEach((opt, i) => {
+    let cls = '';
+    if (answered[key] !== undefined) {
+      if (i === q.answer) cls = 'correct-opt';
+      else if (i === answered[key] && answered[key] !== q.answer) cls = 'wrong-opt';
+    }
+    optHtml += `<button class="${cls}" onclick="selectAnswer(${i})" ${answered[key] !== undefined ? 'disabled' : ''}>${opt}</button>`;
+  });
+  document.getElementById('exOptions').innerHTML = optHtml;
+  document.getElementById('exFeedback').innerHTML = answered[key] !== undefined
+    ? (answered[key] === q.answer
+      ? `<span style="color:#2ecc71;">&check; Correct! ${q.explain}</span>`
+      : `<span style="color:#e74c3c;">&cross; Not quite. ${q.explain}</span>`)
+    : '';
+  document.getElementById('exPrev').disabled = currentQ === 0;
+  document.getElementById('exNext').disabled = currentQ === qs.length - 1;
+  document.getElementById('exCount').textContent = currentQ + 1;
+  document.getElementById('exTotal').textContent = qs.length;
+}
+
+function selectAnswer(idx) {
+  const key = `${currentLevel}-${currentType}-${currentQ}`;
+  if (answered[key] !== undefined) return;
+  answered[key] = idx;
+  renderQ();
+}
+
+function nextQ() {
+  const qs = exercises[currentLevel][currentType];
+  if (currentQ < qs.length - 1) { currentQ++; renderQ(); }
+}
+function prevQ() {
+  if (currentQ > 0) { currentQ--; renderQ(); }
+}
+
+renderQ();
+</script>
+</body>
+</html>
